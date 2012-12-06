@@ -10,6 +10,7 @@ Installation
 ============
 
 1) Place the folders inside app/ and templates/ in to your current django application.
+
 2) Add app.utils to the INSTALLED_APPS list in your settings file(s)
 ```
 INSTALLED_APPS = {
