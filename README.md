@@ -15,7 +15,7 @@ Installation
 ```
 INSTALLED_APPS = {
  ...
- 'gs.utils',
+ 'app.utils',
  ...
 }
 ```
@@ -27,7 +27,7 @@ Usage Example
 ### Passing from Django view to a template
 ```
 def my_reports(request):
-  return render_to_response('combat/reports.html', {'reports':r.table('my_reports').order_by(r.desc('id'))}, context_instance=RequestContext(request))
+  return render_to_response('my_reports/reports.html', {'reports':r.table('my_reports').order_by(r.desc('id'))}, context_instance=RequestContext(request))
 ```
 
 
