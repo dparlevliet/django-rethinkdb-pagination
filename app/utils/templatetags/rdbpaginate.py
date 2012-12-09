@@ -256,6 +256,8 @@ class Paginator(object):
 
   def page(self, number):
     "Returns a Page object for the given 1-based page number."
+    if self.count <= 0:
+      return Page([], 0, self)
     number = self.validate_number(number)
     bottom = (number - 1) * self.per_page
     top = bottom + self.per_page
@@ -271,7 +273,10 @@ class Paginator(object):
         self._count = rtmp.count().run()
         del rtmp
       except (AttributeError, TypeError):
-        self._count = len(self.object_list)
+        try:
+          self._count = len(self.object_list)
+        except:
+          self._count = 0
     return self._count
   count = property(_get_count)
 
